@@ -5,8 +5,6 @@ export build=el-dorado-`jot -r 1 100 999`
 echo $build
 
 sleep 2
-rm -r csv
-cp -rp ../el-dorado-et/csv csv
 docker build -t $build .
 
 sleep 2
