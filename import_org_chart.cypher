@@ -1,0 +1,1 @@
+CREATE (p:PERSON)
