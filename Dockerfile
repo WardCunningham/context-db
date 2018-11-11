@@ -17,8 +17,9 @@ COPY neo4j.write.conf /var/lib/neo4j/conf/neo4j.conf
 WORKDIR /var/lib/neo4j
 
 RUN neo4j start && \
-    sleep 30 && \
+    sleep 15 && \
     sh /working/load_json.sh organization-chart && \
+    sh /working/load_json.sh source-code-control && \
     neo4j stop
 
 # Put configuration in place

@@ -5,7 +5,7 @@ export build=el-dorado-`jot -r 1 100 999`
 echo $build
 
 sleep 2
-docker build -t $build .
+docker build --no-cache -t $build .
 
 sleep 2
 docker ps | grep 7474 | while read c i x; do
