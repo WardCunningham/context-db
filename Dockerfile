@@ -20,6 +20,7 @@ RUN neo4j start && \
     sleep 15 && \
     sh /working/load_json.sh organization-chart && \
     sh /working/load_json.sh source-code-control && \
+    sh /working/load_json.sh dataflow-diagram && \
     neo4j stop
 
 # Put configuration in place
