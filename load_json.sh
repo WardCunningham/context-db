@@ -10,5 +10,7 @@ CYPHER=`curl -s $SITE/$SLUG.json | jq '.story[]|select(.type=="code").text'`
 POST="{\"statements\":[{\"statement\":$CYPHER, \"parameters\": {\"json\":$JSON}}]}"
 
 DB=http://0.0.0.0:7474
-curl -s -H accept:application/json -H content-type:application/json -d "$POST" -X POST "$DB/db/data/transaction/commit" | jq .
+HEAD="-H accept:application/json -H content-type:application/json"
+curl -s $HEAD -d "$POST" -X POST "$DB/db/data/transaction/commit" | \
+  jq -r '.errors[].message'
 
