@@ -11,6 +11,6 @@ POST="{\"statements\":[{\"statement\":$CYPHER, \"parameters\": {\"json\":$JSON}}
 
 DB=http://0.0.0.0:7474
 HEAD="-H accept:application/json -H content-type:application/json"
-curl -s $HEAD -d "$POST" -X POST "$DB/db/data/transaction/commit" | \
+time curl -s $HEAD -d "$POST" -X POST "$DB/db/data/transaction/commit" | \
   jq -r '.errors[].message'
 
