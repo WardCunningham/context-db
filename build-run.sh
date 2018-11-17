@@ -1,8 +1,8 @@
 # build and run a new docker image of the database
 # usage: sh scripts/build-run.sh
 
-export build=el-dorado-`jot -r 1 100 999`
-echo $build
+export build=db-`date +%H%M%S`
+echo building $build
 
 sleep 2
 docker build --no-cache -t $build .
